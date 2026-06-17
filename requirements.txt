@@ -1,0 +1,18 @@
+# Core (CPU-friendly; torch CPU wheel is fine for local dev)
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
+torch>=2.1
+tabpfn>=2.0
+hydra-core>=1.3
+omegaconf>=2.3
+einops>=0.7
+tqdm>=4.66
+rich>=13.0
+matplotlib>=3.7
+# Dev
+pytest>=7.4
+ruff>=0.4
+# Optional generation-quality metrics (uncomment if needed)
+# sdmetrics>=0.13

@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Hydra / experiment outputs
+outputs/
+multirun/
+experiments/
+_try_*.py
+*.log
+
+# Caches (activations can be large)
+cache/
+data/cache/
+*.memmap
+*.npy.shard
+
+# Papers (large; downloaded via download_papers.py)
+referred-papers/*.pdf
+
+# Model weights
+*.ckpt
+*.pt.tmp
+
+# Local Claude tooling / setup (not part of the project)
+.claude/
+claude-setup/
+
+# Scratch images / screenshots
+*.png
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,35 @@
+# GPU-server config — scale up. Switch backend to real TabPFN once D1-D3 are confirmed.
+backend: auto          # tries TabPFN, falls back to mock
+device: auto           # cuda if available
+seed: 0
+out_dir: experiments/full
+
+d_model: 64            # ignored by TabPFN backend (uses its own d_model)
+
+n_datasets: 2000
+n_cols: 16
+n_context: 512
+n_query: 256
+shift_frac: 0.2
+positive_effects: false   # realistic random-sign effects for the real-TabPFN study
+
+token_kind: column
+layer: -1              # last residual block for TabPFN
+normalize: per_dataset # remove arbitrary per-dataset scale (no fixed semantics)
+
+variant: matryoshka    # fights feature absorption of hierarchical tabular concepts
+d_sae: 4096
+k: 32
+lr: 0.0003
+steps: 50000
+batch_size: 4096
+seeds: [0, 1, 2]       # cross-seed stability
+
+concept: monotone
+
+do_generate: true
+gen_n: 2048
+sgld_steps: 400
+sgld_eps: 0.05
+sgld_noise: 1.0
+steer_value: 4.0

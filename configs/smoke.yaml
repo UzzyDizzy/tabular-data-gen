@@ -1,0 +1,34 @@
+# CPU smoke config — runs the whole pipeline end-to-end in seconds-minutes on CPU.
+backend: mock
+device: cpu
+seed: 0
+out_dir: experiments/smoke
+
+d_model: 64
+
+n_datasets: 40
+n_cols: 8
+n_context: 128
+n_query: 64
+shift_frac: 0.2
+
+token_kind: column
+layer: 0
+normalize: global
+
+variant: topk
+d_sae: 256
+k: 16
+lr: 0.0003
+steps: 400
+batch_size: 512
+seeds: [0]
+
+concept: monotone
+
+do_generate: true
+gen_n: 256
+sgld_steps: 150
+sgld_eps: 0.1
+sgld_noise: 1.0
+steer_value: 4.0

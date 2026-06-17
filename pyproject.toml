@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tabsae"
+version = "0.1.0"
+description = "SAE-TFM: sparse dictionaries of a tabular foundation model (TabPFN v2) — mechanistic interpretation and interpretable generation"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Udit Senapaty" }]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scipy>=1.10",
+    "scikit-learn>=1.3",
+    "torch>=2.1",
+    "tabpfn>=2.0",
+    "hydra-core>=1.3",
+    "omegaconf>=2.3",
+    "einops>=0.7",
+    "tqdm>=4.66",
+    "rich>=13.0",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "ruff>=0.4"]
+eval = ["sdmetrics>=0.13"]            # optional generation-quality metrics
+privacy = []                           # synth-mia installed from source if needed
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
